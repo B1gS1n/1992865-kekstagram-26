@@ -18,4 +18,4 @@ const openModal = () => {
   }
 };//Добавляет или удаляет класс модалного окна на body
 
-export {getRandomPositiveInteger, getRandomArrayElement, checkCommentLenght,openModal};
+export {getRandomPositiveInteger, getRandomArrayElement, checkCommentLenght, openModal};

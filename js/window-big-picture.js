@@ -1,4 +1,5 @@
 import {photos} from './data-creation.js';
+import {openModal} from './utility.js';
 
 const pictures = document.querySelectorAll ('.picture');
 const body = document.body;
@@ -19,7 +20,7 @@ const addingPhotoComments = (index) => {
     similarListFragment.append(photosCommentsClone);
     socialComments.append(similarListFragment);
   });
-};
+}; //Добавление комментариев к полноразмерной фотографии
 
 const onBigPictureEscKeydown = (evt) => {
   if (evt.key === 'Escape') {
@@ -32,7 +33,7 @@ const openBigPicture = (picture, photogphiess) => {
   picture.forEach ((element, index) => {
     element.addEventListener('click', () => {
       bigPictureElement.classList.remove('hidden');
-      body.classList.add('modal-open');
+      openModal();
       bigPictureElement.querySelector('.big-picture__img img').src = photogphiess[index].url;
       bigPictureElement.querySelector('.likes-count').textContent = photogphiess[index].likes;
       bigPictureElement.querySelector('.comments-count').textContent = photogphiess[index].comments.length;
@@ -44,7 +45,7 @@ const openBigPicture = (picture, photogphiess) => {
   });
 
   document.addEventListener('keydown', onBigPictureEscKeydown);
-};
+}; //Открытие окна с полноразмерным изображением
 
 function closeBigPicture () {
   bigPictureElement.classList.add('hidden');
@@ -53,10 +54,10 @@ function closeBigPicture () {
   bigPictureElement.querySelector('.comments-loader').classList.remove('hidden');
 
   document.removeEventListener('keydown', onBigPictureEscKeydown);
-}
+} //Закрытие окна с полноразмерным изображением клавишей Escape
 
 buttonBigPictureCancel.addEventListener ('click', () => {
   closeBigPicture();
-});
+});  //Закрытие окна с полноразмерным изображением кликом по кнопке крестик
 
 openBigPicture(pictures, photos);

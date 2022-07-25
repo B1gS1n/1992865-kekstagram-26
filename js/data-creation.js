@@ -46,7 +46,7 @@ const createPhotoDescription = (i) => {
     url: `photos/${i + 1}.jpg`,
     description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomPositiveInteger(15, 200),
-    comments: Array.from({ length: getRandomPositiveInteger(1, 5) }, createPhotoComments),
+    comments: Array.from({ length: getRandomPositiveInteger(1, 25) }, createPhotoComments),
   };
   return photo;
 }; //Создание объекта описания фотографии
